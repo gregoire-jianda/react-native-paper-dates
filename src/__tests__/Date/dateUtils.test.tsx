@@ -74,7 +74,7 @@ describe('timeUtils', () => {
   it('should return correct gridCount for October 2021', () => {
     expect(
       getGridCountForDate(addMonths(new Date(2018, 10 - 1, 1), 12 * 3))
-    ).toBe(6)
+    ).toBe(5)
   })
 
   it('should get correct difference in month between dates', () => {

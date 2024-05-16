@@ -62,7 +62,14 @@ export function getFirstDayOfMonth({
   year: number
   month: number
 }): number {
-  return new Date(year, month, 1).getDay()
+  const dayOfWeek = new Date(year, month, 1).getDay()
+
+  return mapDayOfWeekToIso8601(dayOfWeek)
+}
+
+export function mapDayOfWeekToIso8601(dayOfWeek: number): number {
+  // Map Sunday (0) to 6, Monday (1) to 0, etc.
+  return (dayOfWeek + 6) % 7
 }
 
 export function useRangeChecker(validRange: ValidRangeType | undefined) {
